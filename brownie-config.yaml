@@ -1,0 +1,40 @@
+dependencies:
+  # - <organization/repo>@<version>
+  - OpenZeppelin/openzeppelin-contracts@4.8.0
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.0"
+dotenv: .env
+
+networks:
+  goerli:
+    vrf_coordinator: "0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D"
+    keyHash: "0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15"
+    callback_gas_limit: "500000"
+    subscription_id: 6046
+    publish_source: True
+    mint_fee: "0.01 ether"
+    eth_usd_price_feed: "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e"
+  ganache-local:
+    keyHash: "0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15"
+    callback_gas_limit: "500000"
+    publish_source: False
+    mint_fee: "0.01 ether"
+  
+  development:
+    keyHash: "0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15"
+    callback_gas_limit: "500000"
+    publish_source: False
+    mint_fee: "0.01 ether"
+
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+
+pinata_jwt: ${PINATA_JWT}
+pinata_base_url: "https://api.pinata.cloud"
+upload_to_pinata: False
+frontend_nft_marketplace_path: ${FRONTEND_NFT_MARKETPLACE_PATH}
+frontend_basic_nft_path: ${FRONTEND_BASIC_NFT_PATH}
+frontend_contract_addresses: ${FRONTEND_CONTRACT_ADDRESSES}
